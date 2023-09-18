@@ -1,10 +1,10 @@
-import {React, useEffect } from 'react'
+import {React, useEffect } from 'react';
 import { NavLink } from "react-router-dom";
 import Error from '../../components/Error';
 import Loader from '../../components/Loader';
 
 //Import eget hook - som laver request til API
-import useGetData from '../../hooks/useGetData'
+import useGetData from '../../hooks/useGetData';
 
 const Contact_Front = () => {
 
@@ -29,8 +29,9 @@ const Contact_Front = () => {
 
             {/*Data*/}
 
-            <section>
+            <section className='text-center py-5 bg-dark text-white'>
                 <h2>Skal du bruge hjælp fra STRØM?</h2>
+                <p>Lorem ipsum dolor sit amet consectetur</p>
                 <NavLink end className="nav-link" aria-current="page" to="/contact"><button className='btn btn-primary'>Kontakt Os</button></NavLink>
                 
             </section>
@@ -38,4 +39,4 @@ const Contact_Front = () => {
     )
 }
 
-export default Contact_Front
+export default Contact_Front;

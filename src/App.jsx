@@ -20,9 +20,6 @@ import Contact from './pages/Contact.jsx';
 import NoMatch from './pages/NoMatch';
 
 
-
-
-
 function App() {
   return (
 

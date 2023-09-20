@@ -34,9 +34,9 @@ const Team_Front = () => {
             <div className='row'>
             {data && data.map((d) =>
                     <div className="col" key={d._id}>
-                        <div className='card'>
+                        <div className='overallContainer'>
                             <div className='card-body text-center'>
-                                <img src={d.image} className='customerPic rounded-circle' alt="Portraits of the team" />
+                                <img src={"http://localhost:5333/images/team/" + d.image} alt="Portraits of the team" />
                                 <h2>{d.name}</h2>
                                 <p>{d.title}</p>
                                 <p>{d.review}</p>

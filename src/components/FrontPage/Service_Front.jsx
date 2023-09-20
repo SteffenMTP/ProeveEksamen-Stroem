@@ -1,14 +1,19 @@
-import { React, useEffect } from 'react';
+import { React, useEffect, useState } from 'react';
 import Error from '../../components/Error';
 import Loader from '../../components/Loader';
+import './Service_Front.scss';
 
 //Import eget hook - som laver request til API
-import useGetData from '../../hooks/useGetData'
+import useGetData from '../../hooks/useGetData';
+import usePostData from '../../hooks/usePostData';
 
 const Service_Front = () => {
 
     //request-hook
     const { error, loading, data, getData } = useGetData();
+    const { error: errorPost, loading: loadingPost, data: dataPost, postData } = usePostData();
+
+    const [bookingConfirmed, setBookingConfirmed] = useState(false);
 
     useEffect(() => {
 
@@ -18,13 +23,45 @@ const Service_Front = () => {
 
     }, [])
 
+    //Tøm inputfelt efterpost
+    useEffect(() => {
+        if (dataPost) {
+            document.querySelector("form").reset()
+        }
+    }, [dataPost])
+
+    //Send data til api
+    const handleSubmit = async (e) => {
+        e.preventDefault()              //VIGTIG ved submit af form, da den forhindrer siden i at reloade siden
+
+        let fd = new FormData(e.target)
+
+        // Send data to API
+        try {
+            await postData("http://localhost:5333/booking/", fd);
+
+            // Booking successful, set the state to display the confirmation message
+            setBookingConfirmed(true);
+
+            // Automatically hide the message after 5 seconds (5000 milliseconds)
+            setTimeout(() => {
+                setBookingConfirmed(false);
+            }, 5000);
+
+        } catch (error) {
+            console.error("Error submitting the booking:", error);
+        }
+    };
+
+
+
     return (
         <>
             {/*Error*/}
-            {error && <Error />}
+            {error && errorPost && <Error />}
 
             {/*Loading*/}
-            {loading && <Loader />}
+            {loading && loadingPost && <Loader />}
 
             {/*Data*/}
             <h2>Vores Services</h2>
@@ -35,8 +72,7 @@ const Service_Front = () => {
                         <div className="col" key={d._id}>
                             <div className='card'>
                                 <div className='card-body'>
-                                    <span>{d.icon}</span>
-                                    <h3>{d.title}</h3>
+                                    <h3><span className={"fi " + d.icon}></span> {d.title}</h3>
                                     <p>{d.teaser}</p>
                                 </div>
                             </div>
@@ -45,13 +81,17 @@ const Service_Front = () => {
                 </div>
                 <img src="./about/1.png" className='row' alt="Portrait of a woman, wearing a helmet, in a striped tanktop, with multiple tools in one hand" />
             </div>
-            <form className='BookServiceContainer d-flex justify-content-center mb-5'>
-                <p>Book Service Nu</p>
-                <input type="text" name="Name" id="" placeholder='Dit Navn'/>
-                <input type="email" name="Email" id="" placeholder='Din Email' />
-                <input type="text" name="Phone" id="" placeholder='Telefon nr.' />
-                <input type="submit" value="Send" />
+            <form onSubmit={handleSubmit} className='BookServiceContainer d-flex justify-content-center mb-5'>
+                <h4>Book Service Nu</h4>
+                <input type="text" className='mx-2' name="name" id="name" placeholder='Dit Navn' />
+                <input type="email" className='mx-2' name="email" id="email" placeholder='Din Email' />
+                <input type="text" className='mx-2' name="phone" id="phone" placeholder='Telefon nr.' />
+                <input type="submit" className='mx-2 btn btn-primary' value="Send"/>
             </form>
+            {/* Display the confirmation message below the form */}
+            {bookingConfirmed && (
+                <p>Your booking is confirmed!</p>
+            )}
         </>
     )
 }

@@ -32,7 +32,7 @@ const AboutFront = () => {
             {/*Data*/}
                 {data &&
                 <div className='text-center py-5'>
-                    <h2>{data.title}</h2>
+                    <h1>{data.title}</h1>
                     <p>{data.teaser}</p>
                     <NavLink end className="nav-link" aria-current="page" to="/aboutus"><button className='btn btn-primary'>LÆS MERE</button></NavLink>
                       

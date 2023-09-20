@@ -1,12 +1,12 @@
 import { React, useEffect } from 'react';
-import { NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 import Error from '../components/Error';
 import Loader from '../components/Loader';
 import '../SASS/General.scss';
 import {FaMapMarkerAlt, FaClock, FaPhone} from 'react-icons/fa'
 
 //Import eget hook - som laver request til API
-import useGetData from '../hooks/useGetData'
+import useGetData from '../hooks/useGetData';
 
 
 const Header = () => {
@@ -34,7 +34,7 @@ const Header = () => {
                 {loading && <Loader />}
 
                 {/*Data*/}
-                <NavLink end className="nav-link" aria-current="page" to="/"><img src='./logo.png' alt="Stroem logo"/></NavLink>
+                <Link to="/"><img src='./logo.png' alt="Stroem logo"/></Link>
                 {data &&
                 <div className='d-flex justify-content-end mx-2 '>
                         <FaMapMarkerAlt/><address className='m-1'>{data.address}</address>

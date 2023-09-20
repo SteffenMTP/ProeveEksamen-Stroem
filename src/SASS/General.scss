@@ -1,18 +1,22 @@
-$eerie-black: #222222ff;
-$star-command-blue: #337ab7ff;
-$onyx: #343742ff;
-$independence: #474b5aff;
-$dim-gray: #676a73ff;
-$sonic-silver: #777777ff;
-$gainsboro: #d4dae3ff;
-$platinum: #e5e5e5ff;
-$cultured: #f8f8faff;
-$safety-orange-blaze-orange: #ff6600ff;
 
+@import "variables";
 
+$primary: $safety-orange-blaze-orange;
+$seconday: $cultured;
+
+//HEADER & FOOTER
 header, footer {
     background-color: $onyx;
     color: $cultured;
+}
+
+.nav-foot-item {
+    color: white;
+    
+    &:hover{
+      color: $safety-orange-blaze-orange;
+        margin-left: 10px;
+    }
 }
 
 //NAVBAR
@@ -32,14 +36,38 @@ header, footer {
     color: #aaa;
 }
 
+.nav-link{
+    color: $onyx;
+
+    &:hover{
+        color: $safety-orange-blaze-orange;
+    }
+
+}
+
+.active{
+    background-color: $seconday;
+}
+
 
 //Customer
 
+.CuContain{
+    background-image: image('./Windmills.jpg');
+}
+
 .customerPic{
-    width: 20px;
-    height: 20px;
+    width: 100px;
+    height: 100px;
 }
 
 .CU_card {
     min-height: 100px;
 }
+
+
+
+
+
+
+@import "../../node_modules/bootstrap/scss/bootstrap.scss";

@@ -6,11 +6,16 @@ import {
 } from "react-router-dom";
 import 'bootstrap/dist/css/bootstrap.css';
 
-
+//Public Layouts
 import Header from './Layout/Header.jsx';
 import Navbar from './Layout/Navbar';
 import Footer from './Layout/Footer.jsx';
 
+//Admin Layouts
+import AdminLayout from './Layout/admin/AdminLayout.jsx';
+import HomeAdmin from './pages/admin/HomeAdmin.jsx';
+
+//Public Pages
 import Home from './pages/Home.jsx';
 import AboutUs from './pages/AboutUs.jsx';
 import Service from './pages/Service.jsx';
@@ -20,12 +25,15 @@ import Contact from './pages/Contact.jsx';
 import NoMatch from './pages/NoMatch';
 
 
+
+
 function App() {
   return (
-
-    <Router>
-      <Header />
-      <Navbar />
+    <>
+      {/* Public */}
+      <Router>
+        <Header />
+        <Navbar />
         <Routes>
           <Route path="/" element={< Home />} />
           <Route path="/aboutus" element={< AboutUs />} />
@@ -35,9 +43,17 @@ function App() {
           <Route path="/contact" element={< Contact />} />
           <Route path="*" element={<NoMatch />} />
         </Routes>
-      <Footer/>
+        <Footer />
 
-    </Router>
+      </Router>
+
+      {/* Admin */}
+      <Router>
+        <Routes path='/admin' element={<AdminLayout />}>
+          <Route index element={<HomeAdmin />} />
+        </Routes>
+      </Router>
+    </>
   );
 }
 

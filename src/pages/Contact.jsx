@@ -42,16 +42,26 @@ const Contact = () => {
             <p>email</p>
             <p>{data.email}</p>
           </div>
-          <form action="" className=''>
-            <input type="text" name="name" id="name" placeholder='Dit navn' />
-            <input type="email" name="email" id="email" placeholder='Din Email' />
-            <input type="text" name="phone" id="phone" placeholder='Telefon nr.' />
-            <textarea name="textarea" id="textarea" cols="30" rows="10" placeholder='Din besked...'></textarea>
+          <form action="" className='form-group'>
+            <div className='form-row d-flex'>
+              <div className='col-4'>
+                <input type="text" name="name" id="name" placeholder='Dit navn' className='form-control my-2' />
+                <input type="email" name="email" id="email" placeholder='Din Email' className='form-control my-2' />
+                <input type="text" name="phone" id="phone" placeholder='Telefon nr.' className='form-control my-2' />
+              </div>
+              <div className='col-4 ms-2'>
+                <textarea name="textarea" id="textarea" cols="20" rows="10" placeholder='Din besked...' className='form-control my-2'  ></textarea>
+              </div>
+              <div className='col-4 ms-2'>
+                <div className='mapContainer'>
+                  <LeafletMap />
+                </div>
+              </div>
+            </div>
+
             <button type="submit" className='btn btn-primary'>SEND BESKED</button>
           </form>
-          <div className='mapContainer'>
-            <LeafletMap />
-          </div>
+
           {/* coord={[56, 10]} popupinfo={"Du kan finde os her:"} */}
         </>
       }

@@ -29,7 +29,7 @@ const Customer_Front = () => {
             {loading && <Loader />}
 
             {/*Data*/}
-            <div className='CustomerContainer text-center' style={{backgroundImage: `url("/windmill.jpg")`, backgroundRepeat: "no-repeat", height: "400px"}}>
+            <div className='text-center' id='CustomerContainer' style={{backgroundImage: `url("/windmill.jpg")`, backgroundRepeat: "no-repeat", height: "400px"}}>
                 <h2>Vores kunder siger</h2>
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit sed do eisum tempor</p>
             </div>

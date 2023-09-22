@@ -14,25 +14,25 @@ const Navbar = () => {
         <div className="collapse navbar-collapse d-flex justify-content-center" id="navbarNav">
           <ul className="navbar-nav">
             <li className="nav-item">
-              <NavLink end className="nav-link" aria-current="page" to="/">FORSIDE</NavLink>
+              <NavLink end className="nav-link-main" aria-current="page" to="/">FORSIDE</NavLink>
             </li>
             <li className="nav-item">
-              <NavLink end className="nav-link" aria-current="page" to="/aboutus">OM OS</NavLink>
+              <NavLink end className="nav-link-main" aria-current="page" to="/aboutus">OM OS</NavLink>
             </li>
             <li className="nav-item">
-              <NavLink end className="nav-link" aria-current="page" to="/service">SERVICE</NavLink>
+              <NavLink end className="nav-link-main" aria-current="page" to="/service">SERVICE</NavLink>
             </li>
             <li className="nav-item">
-              <NavLink end className="nav-link" aria-current="page" to="/faq">FAQ</NavLink>
+              <NavLink end className="nav-link-main" aria-current="page" to="/faq">FAQ</NavLink>
             </li>
             <li className="nav-item">
-              <NavLink end className="nav-link" aria-current="page" to="/news">NYHEDER</NavLink>
+              <NavLink end className="nav-link-main" aria-current="page" to="/news">NYHEDER</NavLink>
             </li>
             <li className="nav-item">
-              <NavLink end className="nav-link" aria-current="page" to="/contact">KONTAKT OS</NavLink>
+              <NavLink end className="nav-link-main" aria-current="page" to="/contact">KONTAKT OS</NavLink>
             </li>
             <form className="d-flex has-search" role="search">
-              <input className="form-control me-2" type="search" placeholder="Søg" aria-label="Search"/>
+              <input className="form-control" type="search" placeholder="Søg" aria-label="Search"/>
               <span className='form-control-feedback'><FaSearch/></span>
             </form>
 

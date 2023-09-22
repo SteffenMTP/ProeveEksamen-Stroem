@@ -50,7 +50,7 @@ function App() {
       {/* Admin */}
       <Router>
         <Routes path='/admin' element={<AdminLayout />}>
-          <Route index element={<HomeAdmin />} />
+          {/* <Route index element={<HomeAdmin />} /> */}
         </Routes>
       </Router>
     </>

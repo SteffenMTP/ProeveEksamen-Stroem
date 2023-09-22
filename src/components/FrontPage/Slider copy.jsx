@@ -20,9 +20,9 @@ const Slider = () => {
     const [slideindex, Setslideindex] = useState(1)
 
     const nextSlide = () => {
-        if (slideindex !==1) {
+        if (slideindex !==2) {
             Setslideindex(slideindex + 1) 
-        } else if (slideindex ===1) {
+        } else if (slideindex ===2) {
             Setslideindex(0)            
         }
     }
@@ -51,11 +51,11 @@ const Slider = () => {
                 )
             }) 
             }
+            
             <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
                 <div class="carousel-inner">
                     <div class="carousel-item active">
-                        <img src="./slider/1.jpg" class="d-block w-100" alt="..." />
-                        {/* <img src={"http://localhost:5333/images/slider/" + s.image} class="d-block w-100" alt="..." /> */}
+                        <img src={"http://localhost:5333/images/slider/" + s.image} class="d-block w-100" alt="..." />
                     </div>
                     <div class="carousel-item">
                         <img src="./slider/2.jpg" class="d-block w-100" alt="..." />

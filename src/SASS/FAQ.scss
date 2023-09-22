@@ -17,7 +17,7 @@
 }
 
 /* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
-.accordion.active {
+.accordion.activeFAQ {
     background-color: #ccc;
 }
 
@@ -30,6 +30,6 @@
     transition: 1s;
 }
 
-article.active .panel {
+article.activeFAQ .panel {
     display: block;
 }

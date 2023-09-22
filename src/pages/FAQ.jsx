@@ -34,7 +34,7 @@ const FAQ = () => {
       {/* Data */}
       {data && data.map((s) =>
 
-        <article className={activeAccordion === s._id ? 'active' : ''} onClick={()=> SetActiveAccordion(s._id)} key={s._id}>
+        <article className={activeAccordion === s._id ? 'activeFAQ' : ''} onClick={()=> SetActiveAccordion(s._id)} key={s._id}>
           <h2 className='accordion'>{s.question}</h2>
           <p className='panel'>{s.answer}</p>
         </article>

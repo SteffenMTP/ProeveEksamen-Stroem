@@ -36,8 +36,20 @@ header, footer {
     color: #aaa;
 }
 
-.nav-link{
+#navbarNav{
+    background-color: $onyx;
+}
+
+.navbar-nav{
+    width: 800px;
+    padding: 10px;
+    background-color: $cultured;
+}
+
+.nav-link-main{
     color: $onyx;
+    text-decoration: none;
+    margin: 10px;
 
     &:hover{
         color: $safety-orange-blaze-orange;
@@ -46,14 +58,13 @@ header, footer {
 }
 
 .active{
-    background-color: $seconday;
+    color:$primary;
 }
-
 
 //Customer
 
-.CuContain{
-    background-image: image('./Windmills.jpg');
+#CustomerContainer{
+    background-color: black;
 }
 
 .customerPic{
@@ -64,9 +75,6 @@ header, footer {
 .CU_card {
     min-height: 100px;
 }
-
-
-
 
 
 

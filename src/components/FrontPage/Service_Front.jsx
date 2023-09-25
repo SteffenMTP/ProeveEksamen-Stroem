@@ -23,7 +23,7 @@ const Service_Front = () => {
 
     }, [])
 
-    //Tøm inputfelt efterpost
+    //Empty input field after entry
     useEffect(() => {
         if (dataPost) {
             document.querySelector("form").reset()
@@ -32,7 +32,7 @@ const Service_Front = () => {
 
     //Send data til api
     const handleSubmit = async (e) => {
-        e.preventDefault()              //VIGTIG ved submit af form, da den forhindrer siden i at reloade siden
+        e.preventDefault()              //IMPORTANT when submitting a form, as it prevents the page from reloading the page.
 
         let fd = new FormData(e.target)
 
@@ -67,12 +67,12 @@ const Service_Front = () => {
             <h2>Vores Services</h2>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit sed do eisum tempor</p>
             <div className='ServiceContainer d-flex p-5'>
-                <div className="row row-cols-2 g-2">
+                <div className="row row-cols-2  g-2">
                     {data && data.map((d) =>
                         <div className="col" key={d._id}>
                             <div className='card'>
                                 <div className='card-body'>
-                                    <h3><span className={"fi " + d.icon}></span> {d.title}</h3>
+                                    <h3><span className={"fi " + d.icon} style={{color: "#ff6600ff"}}></span> {d.title}</h3>
                                     <p>{d.teaser}</p>
                                 </div>
                             </div>

@@ -51,7 +51,7 @@ return (
                 </div>
                 <hr />
                 <div>
-                  <p>COMMENTS </p>
+                  <p>COMMENTS</p>
                 </div>
 
               </article>

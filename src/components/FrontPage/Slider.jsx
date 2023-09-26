@@ -11,28 +11,28 @@ const Slider = () => {
     //request-hook
     const { error, loading, data, getData } = useGetData();
 
-    useEffect(() => {
-      getData("http://localhost:5333/images/slider/")
+    // useEffect(() => {
+    //   getData("http://localhost:5333/images/slider/")
     
-    }, [])
+    // }, [])
     
 
-    const [slideindex, Setslideindex] = useState(1)
+    // const [slideindex, Setslideindex] = useState(1)
 
-    const nextSlide = () => {
-        if (slideindex !==1) {
-            Setslideindex(slideindex + 1) 
-        } else if (slideindex ===1) {
-            Setslideindex(0)            
-        }
-    }
-    const prevSlide = () => {
-        if (slideindex !==0) {
-            Setslideindex(slideindex - 1) 
-        } else if (slideindex ===0) {
-            Setslideindex(1)            
-        }
-    }
+    // const nextSlide = () => {
+    //     if (slideindex !==1) {
+    //         Setslideindex(slideindex + 1) 
+    //     } else if (slideindex ===1) {
+    //         Setslideindex(0)            
+    //     }
+    // }
+    // const prevSlide = () => {
+    //     if (slideindex !==0) {
+    //         Setslideindex(slideindex - 1) 
+    //     } else if (slideindex ===0) {
+    //         Setslideindex(1)            
+    //     }
+    // }
 
     return (
         <>
@@ -43,14 +43,6 @@ const Slider = () => {
             {loading && <Loader />}
 
             {/* Data */}
-            {data && data.map((s,index) => {
-                return(
-                    <div key={s.id} className={data === index + 1 ? "slideactive-anim" : "slide"}>
-                        <img src={"http://localhost:5333/images/slider/" + s[index].image} class="d-block w-100" alt="..." />
-                    </div>
-                )
-            }) 
-            }
             <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
                 <div class="carousel-inner">
                     <div class="carousel-item active">

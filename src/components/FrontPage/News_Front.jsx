@@ -1,4 +1,4 @@
-import { React, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { NavLink } from "react-router-dom";
 import Error from '../../components/Error';
 import Loader from '../../components/Loader';
@@ -13,12 +13,8 @@ const News_Front = () => {
   const { error, loading, data, getData } = useGetData();
 
   useEffect(() => {
-
-    getData("http://localhost:5333/news"
-    )
-
-
-  }, [])
+    getData("http://localhost:5333/news");
+  }, []);
 
   // Sort data by date in descending order (newest to oldest)
   const sortedData = data
@@ -26,7 +22,7 @@ const News_Front = () => {
     : [];
 
   return (
-    <>
+    <div className="container">
       {/*Error*/}
       {error && <Error />}
 
@@ -34,35 +30,58 @@ const News_Front = () => {
       {loading && <Loader />}
 
       {/*Data*/}
-      <div className='OurTeamContainer text-center'>
-        <h2>Sidste nyt</h2>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit sed do eisum tempor</p>
+      <div className="row">
+        <div className="col-md-12">
+          <div className="OurTeamContainer text-center">
+            <h2>Sidste nyt</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit sed do eisum tempor</p>
+          </div>
+        </div>
       </div>
-      <div className='row grid-gap-4 grid-cols-2'>
-        {data && sortedData.slice(0, 3).map((d) =>
-          <div className="col" key={d._id}>
-            <div className='card'>
-              <div className='text-center position-relative'>
-                <div className='position-absolute'>
-                  <span className='position-absolute top-0 start-0'><FaBookmark size={75} color='orange' /></span>
-                  <p className='position-relative top-0 text-white ms-2'>{new Date(d.received).toLocaleString("da-dk", { month: "short", day: "numeric" })}</p>
-                </div>
-                  <img src={"http://localhost:5333/images/news/" + d.image} className='NewsPic rounded card-img-top' alt="Articles" />
 
+      <div className="row">
+        {data && sortedData.slice(0, 3).map((d) => (
+          <div className="col-md-4" key={d._id}>
+            <div className="card mb-4">
+              <div className="text-center position-relative">
+                <div className="position-absolute top-0 start-0">
+                  <FaBookmark size={75} color="orange" />
+                </div>
+                <p className="position-relative top-0 ms-2">
+                  {new Date(d.received).toLocaleString("da-dk", {
+                    month: "short",
+                    day: "numeric",
+                  })}
+                </p>
+                <img
+                  src={"http://localhost:5333/images/news/" + d.image}
+                  className="NewsPic rounded card-img-top"
+                  alt="Articles"
+                />
                 <div>
-                  <h2 className='card-title'>{d.title}</h2>
-                  <p className='card-text'>{d.content.slice(0, 150)}...</p>
+                  <h2 className="card-title">{d.title}</h2>
+                  <p className="card-text">{d.content.slice(0, 150)}...</p>
                 </div>
-
               </div>
             </div>
           </div>
-        )}
+        ))}
       </div>
-      <NavLink end className="nav-link text-center" aria-current="page" to="/news"><button className='btn btn-primary'>Flere Nyheder ... </button></NavLink>
 
-    </>
-  )
-}
+      <div className="row">
+        <div className="col-md-12">
+          <NavLink
+            end
+            className="nav-link text-center"
+            aria-current="page"
+            to="/news"
+          >
+            <button className="btn btn-primary">Flere Nyheder ...</button>
+          </NavLink>
+        </div>
+      </div>
+    </div>
+  );
+};
 
-export default News_Front
+export default News_Front;

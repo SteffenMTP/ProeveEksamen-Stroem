@@ -35,12 +35,13 @@ const Contact = () => {
         <>
           <h2>Kontakt os</h2>
           <div className="container d-flex justify-content-center">
-            <p>Adresse</p>
-            <address>{data.address}</address>
-            <p>Telefon</p>
-            <p>{data.phone}</p>
-            <p>email</p>
-            <p>{data.email}</p>
+            <p className='mx-1'>Adresse</p>
+            <address className='mx-1'>{data.address}</address>
+            <p className='mx-1'>Telefon</p>
+            <p className='mx-1'>{data.phone}</p>
+            <p className='mx-1'>email</p>
+            <p >email</p>
+            <p >{data.email}</p>
           </div>
           <form action="" className='form-group'>
             <div className='form-row d-flex'>

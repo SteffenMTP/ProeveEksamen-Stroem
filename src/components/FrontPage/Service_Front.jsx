@@ -63,30 +63,39 @@ const Service_Front = () => {
             {/*Loading*/}
             {loading && loadingPost && <Loader />}
 
-            {/*Data*/}
+            {/* Data */}
             <h2>Vores Services</h2>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit sed do eisum tempor</p>
             <div className='ServiceContainer d-flex p-5'>
-                <div className="row row-cols-2  g-2">
-                    {data && data.map((d) =>
-                        <div className="col" key={d._id}>
-                            <div className='card'>
-                                <div className='card-body'>
-                                    <h3><span className={"fi " + d.icon} style={{color: "#ff6600ff"}}></span> {d.title}</h3>
-                                    <p>{d.teaser}</p>
+                <div className="row row-cols-1 row-cols-md-2 g-2">
+                    {data &&
+                        data.map((d) => (
+                            <div className="col" key={d._id}>
+                                <div className='card'>
+                                    <div className='card-body'>
+                                        <h3>
+                                            <span className={"fi " + d.icon} style={{ color: "#ff6600ff" }}></span> {d.title}
+                                        </h3>
+                                        <p>{d.teaser}</p>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    )}
+                        ))}
                 </div>
-                <img src="./about/1.png" className='row' alt="Portrait of a woman, wearing a helmet, in a striped tanktop, with multiple tools in one hand" />
+                <div className='col-md-6'>
+                    <img
+                        src="./about/1.png"
+                        className='img-fluid'
+                        alt="Portrait of a woman, wearing a helmet, in a striped tanktop, with multiple tools in one hand"
+                    />
+                </div>
             </div>
             <form onSubmit={handleSubmit} className='BookServiceContainer d-flex justify-content-center mb-5'>
                 <h4>Book Service Nu</h4>
                 <input type="text" className='mx-2' name="name" id="name" placeholder='Dit Navn' />
                 <input type="email" className='mx-2' name="email" id="email" placeholder='Din Email' />
                 <input type="text" className='mx-2' name="phone" id="phone" placeholder='Telefon nr.' />
-                <input type="submit" className='mx-2 btn btn-primary' value="Send"/>
+                <input type="submit" className='mx-2 btn btn-primary' value="Send" />
             </form>
             {/* Display the confirmation message below the form */}
             {bookingConfirmed && (
